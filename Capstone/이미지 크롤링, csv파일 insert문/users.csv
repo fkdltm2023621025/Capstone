@@ -1,0 +1,3 @@
+user_id,name,nick_name,id,password,email,admin_user
+1,양민지,밍,minji040304,$2b$12$38Sq39Im286OlmuoxdY4nOiExbWyD9vVHZEEv.EEAI1jeNIsqg.7O,test@gmail.com,0
+4,윤재범,테스트관리자,test1234,$2b$12$8nB7Fa4XxTVAU.aHVLjDlOX.pSEySaj1MsUMEGQZojUr33r8DF36m,test@naver.com,0

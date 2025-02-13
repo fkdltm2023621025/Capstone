@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>장비좀봐줄래?</title>
+    <link rel="stylesheet" href="../static/css/sign.css">
+    <link rel="stylesheet" href="../static/css/top_menu.css">
+    <style>
+        *
+        {
+            padding:0;
+            margin:0;
+            box-sizing: border-box;
+        }
+        html,body
+        {
+            width: 100%;
+            height: 100%;
+            background-color: #2B2B2B;
+        }
+        .sign_div
+        {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .warning
+        {
+            text-align: center;
+            font-weight: bold;
+        }
+        .delete_input
+        {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+
+            width:100%;
+            text-align: center;
+        }
+        .sign_div
+        {
+            text-align: center;
+        }
+        .sub_btn:hover
+        {
+            background-color: #f00;
+            color:#fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="top_menu">
+                <div class="left_menu">
+                    <a class="menu_category" href="/"><img src="../static/img/banner/Sprite_Logo.png" alt="Logo"></a>
+                </div>
+                <div class="center_menu">
+                    <a class="menu_category" href="/LOL">리그오브레전드</a>
+                    <a class="menu_category" href="/PUBG">배틀그라운드</a>
+                    <a class="menu_category" href="/Overwatch">오버워치</a>
+                    <a class="menu_category" href="/valo">발로란트</a>
+                </div>
+                <div class="right_menu">
+                    {% if session.user_id %}
+                    {% if session.admin_user == 0 %}
+                    <a class="menu_category" href="/mypage">My Page</a>
+                    <a class="menu_category" href="/logout">Log Out</a>
+                    {% elif session.admin_user == 1 %}
+                    <a class="menu_category" href="/adminPage">Admin Page</a>
+                    <a class="menu_category" href="/logout">Log Out</a>
+                    {% endif %}
+                    {% else %}
+                    <a class="menu_category" href="/login">Login</a>
+                    <a class="menu_category" href="/signup">Sign Up</a>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section>
+       <article>
+            <div class = "sign_div">
+                <h1>회원탈퇴</h1><br>
+                <p class = "warning">정말로 탈퇴하시겠습니까?<br>탈퇴 후 계정은 복구가 불가능합니다.</p>
+                <br>
+                <p class = "warning">입력칸에 회원탈퇴 를 입력하신 후<br>탈퇴 버튼을 클릭시 탈퇴처리 됩니다.</p>
+                <br>
+                <form id="delete_account" action="/delete_account" method="post">
+                    <input type="text" class = "delete_input" name="delete_chk">
+                    <input type="submit" class = "sub_btn" value="탈퇴">
+                </form>
+            </div>
+            
+       </article>
+    </section> 
+
+    {% if alert_message %}
+    <script>
+        alert("{{ alert_message }}");
+        {% if delete_success %}
+        window.location.href = "/"; 
+        {% endif %}
+    </script>
+    {% endif %}
+</body>
+</html>

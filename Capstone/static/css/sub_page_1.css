@@ -1,0 +1,95 @@
+/* sub_page1.css */
+section
+{
+    width: 100%;
+    padding-left: 65px;
+    padding-right: 65px;
+}
+
+.person_list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.list_box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 90%;
+    margin: 15px 0;
+    border: 3px solid #ccc;
+    padding: 10px;
+    background-color: rgba(255,255,255,0.9);
+}
+
+.container {
+    display: flex; /* 카드가 나란히 보이도록 설정 */
+    gap: 30px; /* 카드 간 간격 설정 */
+    padding: 50px;
+}
+.card-case {
+    display: flex;
+    gap: 10px;
+}
+.card-case:hover {
+    transform: scale(1.2);
+}
+.card {
+    width: 280px;
+    height: 400px;
+    position: relative;
+    overflow: hidden; /* 오버플로우 숨기기 */
+    transition: all 0.1s;
+    border-radius: 15px;
+    background-color: #615447;
+}
+.overlay {
+    position: absolute;
+    top: 0; /* 오버레이 위치 조정 */
+    left: 0; /* 오버레이 위치 조정 */
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(105deg, transparent 40%, rgba(255, 219, 112, 0.8) 45%, rgba(132, 50, 255, 0.6) 50%, transparent 54%);
+    filter: brightness(1.1) opacity(0.8);
+    mix-blend-mode: color-dodge;
+    background-size: 150% 150%;
+    transition: all 0.1s;
+    cursor: pointer;
+}
+.cardimg {
+    width: 280px;
+    height: 250px;
+    object-fit: cover; /* contain으로 하면 원본 크기로 들어감 */
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.card-name {
+    position: absolute;
+    top: 250px;
+    bottom: 120px; /* 텍스트 위치 조정 */
+    left: 10px;
+    right: 10px;
+    text-align: center; /* 텍스트 중앙 정렬 */
+    font-size: 15px;
+    font-weight: bold;
+    color: black; /* 텍스트 색상 */
+    background-color: #D6CAB1; /* 배경색으로 가독성 향상 */
+    padding: 5px; /* 여백 추가 */
+    border-radius: 5px;
+}
+.text {
+    position: absolute;
+    top: 290px; /* 텍스트 위치 조정 */
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    text-align: center; /* 텍스트 중앙 정렬 */
+    font-size: 10px;
+    color: black; /* 텍스트 색상 */
+    background-color: #E0DCC7; /* 배경색으로 가독성 향상 */
+    padding: 5px; /* 여백 추가 */
+    border-radius: 5px;
+}

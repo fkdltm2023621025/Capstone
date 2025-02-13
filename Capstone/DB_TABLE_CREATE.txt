@@ -1,0 +1,52 @@
+CREATE TABLE `comment` (
+  `comment_id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
+  `user_id` int DEFAULT NULL,
+  `comment` varchar(300) DEFAULT NULL,
+  PRIMARY KEY (`comment_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `flagship` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `제품` varchar(255) DEFAULT NULL,
+  `카테고리` varchar(255) DEFAULT NULL,
+  `설명` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `highend` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `제품` varchar(255) DEFAULT NULL,
+  `카테고리` varchar(255) DEFAULT NULL,
+  `설명` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `mainstream` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `제품` varchar(255) DEFAULT NULL,
+  `카테고리` varchar(255) DEFAULT NULL,
+  `설명` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=151 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `star` (
+  `name` varchar(50) NOT NULL,
+  `headset` varchar(100) DEFAULT NULL,
+  `keyboard` varchar(100) DEFAULT NULL,
+  `mouse` varchar(100) DEFAULT NULL,
+  `moniter` varchar(100) DEFAULT NULL,
+  `mouse_pad` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `users` (
+  `user_id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `nick_name` varchar(100) NOT NULL,
+  `id` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `admin_user` tinyint(1) NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

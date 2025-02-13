@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>장비좀봐줄래?</title>
+    <link rel="stylesheet" href="../static/css/top_menu.css">
+    <link rel="stylesheet" href="../static/css/home_main.css">
+    <link rel="stylesheet" href="../static/css/adminPage.css">
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #f0f0f0;
+    background-color: #333;
+    overflow-y: auto;
+}
+
+/* 네비게이션 스타일 */
+
+
+.left_menu, .center_menu, .right_menu {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.left_menu {
+    flex: 1;
+    justify-content: flex-start;
+}
+
+.center_menu {
+    flex: 1.5;
+    justify-content: center;
+}
+
+.right_menu {
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.menu_category {
+    margin: 0 10px;
+    text-decoration: none;
+    color: white;
+    transition: ease-in-out 0.1s;
+    display: flex;
+    align-items: center;
+    height: 100%; /* 부모 컨테이너의 높이에 맞춤 */
+    padding: 0 20px; /* 패딩에서 상하 패딩 제거 */
+    border-bottom: 1px solid rgba(0, 0, 0, 0);
+    box-sizing: border-box; /* 패딩을 포함한 전체 높이 유지 */
+}
+
+.menu_category:hover {
+    border-bottom: 1px solid white;
+    background-color: #232323;
+}
+
+.menu_category img {
+    height: 100%; /* 이미지가 부모 컨테이너의 높이에 맞게 */
+    object-fit: contain; /* 이미지 비율을 유지하며 맞춤 */
+    padding: 10px; /* 이미지에 패딩 추가 */
+    box-sizing: border-box; /* 패딩을 포함한 전체 높이 유지 */
+}
+
+
+.center_menu a {
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+.center_menu a:hover {
+    background-color: #444;
+}
+
+/* Admin Page Content */
+.admin-content {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #444;
+    border-radius: 10px;
+}
+
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* 탭 배경 색상 및 글씨 색상 설정 */
+.tab-button {
+    background-color: white;  /* 기본 배경색을 흰색으로 설정 */
+    color: black;  /* 기본 글씨 색상은 검은색 */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: "big_noodle";
+}
+
+/* 마우스를 올렸을 때 배경색을 검은색, 글씨 색상을 흰색으로 변경 */
+.tab-button:hover,
+.tab-button.active {
+    background-color: black;  /* 배경색을 검은색으로 */
+    color: white;  /* 글씨 색상을 흰색으로 */
+}
+
+
+/* 사용자 관리, 회원 활동 통계 테이블 스타일 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    margin-top: 20px;
+    background-color: #333; /* 테이블 배경 색상 */
+    border-radius: 8px;
+    overflow: hidden; /* 둥근 모서리에 맞춰 잘림 처리 */
+}
+
+thead {
+    background-color: #333;
+    color: #f0f0f0;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #555;
+}
+
+tbody tr:hover {
+    background-color: #444;
+}
+
+/* 버튼 스타일 */
+.management-data {
+    background-color: black;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: "hanna";
+}
+
+.management-data:hover {
+    background-color: white;
+    color: black;
+}
+
+/* 통계 섹션 */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+
+/* 사용자 관리 탭을 감싸는 박스 배경색 변경 */
+#user-management {
+    background-color: rgb(96, 96, 105); /* 원하는 색상으로 변경 */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+    </style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="top_menu">
+                <div class="left_menu">
+                    <a class="menu_category" href="/"><img src="../static/img/banner/Sprite_Logo.png" alt="Logo"></a>
+                </div>
+                <div class="center_menu">
+                    <a class="menu_category" href="/LOL">리그오브레전드</a>
+                    <a class="menu_category" href="/PUBG">배틀그라운드</a>
+                    <a class="menu_category" href="/Overwatch">오버워치</a>
+                    <a class="menu_category" href="/valo">발로란트</a>
+                </div>
+                <div class="right_menu">
+                    <a class="menu_category" href="/adminPage">관리자 페이지</a>
+                    <a class="menu_category" href="/logout">Log Out</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="admin-content">
+        <div class="tabs">
+            <button class="tab-button" data-tab="user-management">사용자 관리</button>
+            <button class="tab-button" data-tab="category-stats">회원 활동 통계</button>
+        </div>
+
+        <div id="user-management" class="tab-content">
+            <h2>사용자 관리 탭</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            user_id
+                        </th>
+                        <th>
+                            이름
+                        </th>
+                        <th>
+                            닉네임
+                        </th>
+                        <th>
+                            id
+                        </th>
+                        <th>
+                            이메일
+                        </th>
+                        <th>
+                            댓글
+                        </th>
+                        <th>
+                            닉네임 변경
+                        </th>
+                        <th>
+                            탈퇴
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>
+                            {{ user['user_id'] }}
+                        </td>
+                        <td>
+                            {{ user['name'] }}
+                        </td>
+                        <td>
+                            {{ user['nick_name'] }}
+                        </td>
+                        <td>
+                            {{ user['id'] }}
+                        </td>
+                        <td>
+                            {{ user['email'] }}
+                        </td>
+                        <td>
+                            <button class="management-data">댓글</button>
+                        </td>
+                        <td>
+                            <button class="management-data">닉네임 변경</button>
+                        </td>
+                        <td>
+                            <button class="management-data">탈퇴</button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+
+            <!-- 여기에 회원 정보 조회 및 수정 기능을 구현할 예정 -->
+        </div>
+
+        <div id="category-stats" class="tab-content" style="display:none;">
+            <h2>회원 활동 통계 탭</h2>
+            <!-- 여기에 회원 활동 통계 및 이용 서비스 통계 기능을 구현할 예정 -->
+            <canvas id="gameCategoryChart"></canvas>
+            <canvas id="lolPlayerChart"></canvas>
+            <canvas id="pubgPlayerChart"></canvas>
+            <canvas id="overwatchPlayerChart"></canvas>
+            <canvas id="saPlayerChart"></canvas>
+            <canvas id="valoPlayerChart"></canvas>
+            <canvas id="csPlayerChart"></canvas>
+        </div>
+    </div>
+
+    <script src="../static/js/adminPage.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabs = document.querySelectorAll('.tab-button');
+            const contents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function () {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    contents.forEach(c => c.style.display = 'none');
+
+                    this.classList.add('active');
+                    document.getElementById(this.dataset.tab).style.display = 'block';
+                });
+            });
+
+            // 첫 번째 탭 기본 활성화
+            tabs[0].classList.add('active');
+            contents[0].style.display = 'block';
+
+            // '카테고리 별 통계' 탭 클릭 시 통계 데이터 로드 및 그래프 표시
+            document.querySelector('[data-tab="category-stats"]').addEventListener('click', () => {
+                fetch('/adminPage/category-stats')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log('Received data:', data);
+
+                        // 그래프 생성 함수
+                        function createChart(canvasId, title, data) {
+                            const ctx = document.getElementById(canvasId).getContext('2d');
+                            const labels = Object.keys(data);
+                            const values = Object.values(data);
+
+                            new Chart(ctx, {
+                                type: 'bar',
+                                data: {
+                                    labels: labels,
+                                    datasets: [{
+                                        label: title,
+                                        data: values,
+                                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                                        borderColor: 'rgba(75, 192, 192, 1)',
+                                        borderWidth: 1
+                                    }]
+                                },
+                                options: {
+                                    responsive: true,
+                                    scales: {
+                                        y: {
+                                            beginAtZero: true
+                                        }
+                                    }
+                                }
+                            });
+                        }
+
+                        // 데이터에 따라 그래프 생성
+                        createChart('gameCategoryChart', '게임 카테고리 접속자 수', data.game_categories);
+                        createChart('lolPlayerChart', 'LOL 프로게이머 접속자 수', data.lol_players);
+                        createChart('pubgPlayerChart', 'PUBG 프로게이머 접속자 수', data.pubg_players);
+                        createChart('overwatchPlayerChart', 'Overwatch 프로게이머 접속자 수', data.overwatch_players);
+                        createChart('saPlayerChart', 'SuddenAttack 프로게이머 접속자 수', data.sa_players);
+                        createChart('valoPlayerChart', 'Valorant 프로게이머 접속자 수', data.valo_players);
+                        createChart('csPlayerChart', 'CounterStrike 프로게이머 접속자 수', data.cs_players);
+                        // 필요한 추가 그래프들 추가
+                    })
+                    .catch(error => console.error('Error fetching category stats:', error));
+            });
+        });
+    </script>
+</body>
+
+</html>

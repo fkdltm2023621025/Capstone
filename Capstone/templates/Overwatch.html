@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>장비좀봐줄래?</title>
+    <link rel="stylesheet" href="../static/css/sub_page_1.css">
+    <link rel="stylesheet" href="../static/css/top_menu.css">
+    <style>
+        *
+        {
+            padding:0;
+            margin:0;
+            box-sizing: border-box;
+        }
+        html,body
+        {
+            width: 100%;
+            height: 100%;
+            background-color: #2B2B2B;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="top_menu">
+                <div class="left_menu">
+                    <a class="menu_category" href="/"><img src="../static/img/banner/Sprite_Logo.png" alt="Logo"></a>
+                </div>
+                <div class="center_menu">
+                    <a class="menu_category" href="/LOL">리그오브레전드</a>
+                    <a class="menu_category" href="/PUBG">배틀그라운드</a>
+                    <a class="menu_category" href="/Overwatch">오버워치</a>
+                    <a class="menu_category" href="/valo">발로란트</a>
+                </div>
+                <div class="right_menu">
+                    {% if session.user_id %}
+                    {% if session.admin_user == 0 %}
+                    <a class="menu_category" href="/mypage">My Page</a>
+                    <a class="menu_category" href="/logout">Log Out</a>
+                    {% elif session.admin_user == 1 %}
+                    <a class="menu_category" href="/adminPage">Admin Page</a>
+                    <a class="menu_category" href="/logout">Log Out</a>
+                    {% endif %}
+                    {% else %}
+                    <a class="menu_category" href="/login">Login</a>
+                    <a class="menu_category" href="/signup">Sign Up</a>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section>
+        <article class="person_list">
+            <div class="container">
+                <div class="card-case">
+                    <div class="card">
+                        <div class="overlay" onclick="handleImageClick('Profit', 3)"></div>
+                            <div class="img-case">
+                                <img class="cardimg" src="../static/img/person/Profit.jpg">
+                            </div>
+                            <div class="card-name"><a onclick="handleImageClick('Profit', 3)">Profit (박준영)</a></div>
+                            <div class="text">
+                                <a class = "person_name" onclick="handleImageClick('Profit', 3)">
+                                    고감도선수이며, 겐트를 위시한 포커싱에 강점이 있는 선수이다.
+                                    트레이서로는 상당한 활동량으로 적 힐러진을 괴롭히는 모습을 보여주며,
+                                    유명한 겐지 플레이어이기도 하였고 영웅폭이 넓은 선수중에 한명이다.
+                                </a>
+                            </div>
+                    </div>
+                </div>
+                
+                <div class="card-case">
+                    <div class="card">
+                        <div class="overlay" onclick="handleImageClick('Ryujehong', 2)"></div>
+                            <div class="img-case">
+                                <img class="cardimg" src="../static/img/person/Ryujehong.jpg">
+                            </div>
+                            <div class="card-name"><a onclick="handleImageClick('Ryujehong', 2)">Ryujehong (류제홍)</a></div>
+                            <div class="text">
+                                <a class = "person_name" onclick="handleImageClick('Ryujehong', 2)">
+                                    Ryujehong은 공격적이고 정확한 플레이로 유명한 한국의 오버워치 프로게이머입니다.
+                                    주로 아나와 젠야타를 사용하며, 그의 플레이는 수면총과 생존 능력을 활용한 뛰어난 전술적인 기술로 알려져 있습니다.
+                                    오버워치 리그에서 활약한 경력이 있으며, 그의 업적은 게임 커뮤니티에서 여전히 기억됩니다.    
+                                </a>
+                            </div>
+                    </div>
+                </div>
+
+                <div class="card-case">
+                    <div class="card">
+                        <div class="overlay" onclick="handleImageClick('JJoNak', 2)"></div>
+                            <div class="img-case">
+                                <img class="cardimg" src="../static/img/person/JJoNak.jpg">
+                            </div>
+                            <div class="card-name"><a onclick="handleImageClick('JJoNak', 2)">JJoNak (방성현)</a></div>
+                            <div class="text">
+                                <a class = "person_name" onclick="handleImageClick('JJoNak', 2)">
+                                    시즌 3부터 랭킹 20위권 밖으로 나간 적이 없는 경쟁전 깡패. '쪼물락낙지' 으로 유명했으며,
+                                    아시아 경쟁전 순위 1위를 찍은 적이 있었고, 현재까지도 아시아 경쟁전 순위권 1페이지의 본인소유 계정이 3개나 되는 실력자다
+                            </a>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="card-case">
+                    <div class="card">
+                        <div class="overlay" onclick="handleImageClick('Geguri', 1)"></div>
+                            <div class="img-case">
+                                <img class="cardimg" src="../static/img/person/Geguri.jpg">
+                            </div>
+                            <div class="card-name"><a onclick="handleImageClick('Geguri', 1)">Geguri (김세연)</a></div>
+                            <div class="text">
+                                <a class = "person_name" onclick="handleImageClick('Geguri', 1)">
+                                    상당히 높은 감도를 쓰는 유저로 보통의 프로게이머들은 비교적 낮은 감도를 사용하는 것에 비해
+                                    비해굉장히 높은 감도를 사용하는 유저로 유명하며, Geguri 유저는 에임이 매우 정확하다.
+                                </a>
+                            </div>
+                    </div>
+                </div>
+
+                <div class="card-case">
+                    <div class="card">
+                        <div class="overlay" onclick="handleImageClick('김효종', 2)"></div>
+                            <div class="img-case">
+                                <img class="cardimg" src="../static/img/person/김효종.jpg">
+                            </div>
+                            <div class="card-name"><a onclick="handleImageClick('김효종', 2)">Haksal (김효종)</a></div>
+                            <div class="text">
+                                <a class = "person_name" onclick="handleImageClick('김효종', 2)">
+                                    학살(Haksal)은 대한민국 출신의 유명한 프로게이머로, 특히 겐지와 같은 돌격 영웅으로 뛰어난 기량을 보여줬습니다.
+                                    2019년 오버워치 리그 신인상을 수상했으며, 그의 독창적인 플레이와 날카로운 판단력으로 많은 팬들에게 사랑받았습니다.
+                                    이후 뉴욕 엑셀시어 팀에서도 활약했으며, 오버워치 e스포츠 역사에 큰 영향을 미친 선수로 평가됩니다.
+                                </a>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 추가적인 인물들은 이어서 나열하시면 됩니다 -->
+        </article>
+    </section>  
+    <script>
+        // 이미지를 클릭할 때 호출되는 함수
+        function handleImageClick(name, table_index) {
+            // 클릭된 경우, /update_data_select 엔드포인트에 table_index 값을 전송
+            fetch('/update_data_select', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ value: table_index }) // 여기에 적절한 table_index 값을 넣어주세요
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data); // 서버로부터의 응답 확인
+                // 이 부분에 원하는 추가 처리를 할 수 있습니다.
+            })
+            .catch(error => console.error('Error:', error));
+    
+            // 클릭된 이미지의 이름을 URL 파라미터로 추가하여 index.html로 이동
+            window.location.href = '/index?name=' + name + '&table_index=' + table_index;
+        }
+
+        const cards = document.querySelectorAll('.card');
+    
+        cards.forEach(card => {
+            const overlay = card.querySelector('.overlay');
+
+            card.addEventListener('mousemove', function(e) {
+                const x = e.offsetX;
+                const y = e.offsetY;
+                const rotateY = -1/5 * x + 20;
+                const rotateX = 4/30 * y - 20;
+
+                overlay.style.backgroundPosition = `${x / 5 + y / 5}%`;
+                overlay.style.filter = `opacity(${x / 200}) brightness(1.2)`;
+                card.style.transform = `perspective(350px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+
+            card.addEventListener('mouseout', function() {
+                overlay.style.filter = 'opacity(0)';
+                card.style.transform = 'perspective(350px) rotateY(0deg) rotateX(0deg)';
+            });
+        });
+    </script>
+    <script src = "../static/js/aaccess_url.js"></script>
+</body>
+</html>
