@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>다른 HTML 파일</title>
+    <link rel="stylesheet" href="../static/css/top_menu.css">
+    <link rel="stylesheet" href="../static/css/home_main.css">
+    <style>
+        @font-face {
+            src: url("../static/font/big_noodle_titling.ttf");
+            font-family: "big_noodle";
+        }
+        @font-face {
+            src: url("../static/font/BMHANNAAir_ttf.ttf");
+            font-family: "hanna";
+        }
+        html, body 
+        {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #555555;
+        }
+        nav 
+        {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="top_menu">
+                <div><a class="menu_category" href="/">Logo</a></div>
+                <div><a class="menu_category" href="/LOL">category</a></div>
+                <div><a class="menu_category" href="/PUBG">category</a></div>
+                <div><a class="menu_category" href="/SA">category</a></div>
+                <div><a class="menu_category" href="">category</a></div>
+            </div>
+        </nav>
+    </header>
+    <section>
+        <div class="main_div">
+            <div id="highlight" class="content_div">
+                <div class="slide-container">
+                    <div class="slide" onclick="location.href='/LOL'">
+                        <div id="video_div">
+                            <img class="banner_img" src="../static/img/banner/lol_banner.png" alt="이미지 삽입부분">
+                            <div class="video_overlay"></div>
+                            <div class="content_overlay">
+                                <div class="top_exp">
+                                    <p class="title_head" style="text-align: right">Prove it Yourself</p>
+                                </div>
+                                <div class="bottom_exp">
+                                    <div class="tail">
+                                        <p class="title_tail">진정한 당신의 실력을 증명하세요.</p><br>
+                                        <p class="body_tail">
+                                            여러분이 리그오브레전드에서 최고의 장비를 찾을 수 있도록 도와드립니다. 우리의 목표는<br>
+                                            여러분이 게임에서 최고의 성과를 이끌어내기 위한 제품들을 소개해 드립니다.<br>
+                                            치열한 전장에서 최고의 장비로 당신의 진정한 실력을 증명해보세요!
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <!-- 추가 배너 이미지 -->
+                    </div>
+                </div>
+                <button class="nav-button" id="prev-slide">&lt;</button>
+                <button class="nav-button" id="next-slide">&gt;</button>
+            </div>
+            <div id="main_category" class="content_div">
+                <!-- 다른 콘텐츠를 여기에 추가 -->
+            </div>
+        </div>
+    </section>
+    <script src="../static/js/slide_banner.js"></script>
+</body>
+</html>

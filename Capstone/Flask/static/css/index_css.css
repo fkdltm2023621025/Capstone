@@ -1,0 +1,131 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    color: white;
+    background-color: #2b2b2b;
+    overflow: hidden; /* 스크롤바 제거 */
+}
+
+.famous_area {
+    width: calc(100% - 20px); /* 전체 너비에서 좌우 여백 고려 */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* 요소들을 좌우에 균등하게 배치 */
+    padding: 10px; /* 좌우 여백 추가 */
+    box-sizing: border-box;
+}
+
+.f_area_div {
+    position: relative;
+    width: calc(19% - 10px); /* 요소의 너비를 계산 */
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: #4f4f4f;
+    text-align: center;
+    align-items: center;
+    vertical-align: middle;
+    margin-bottom: 10px; /* 아래 여백 추가 */
+    border: 2px none white;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.f_area_div:hover .f_area_tail {
+    opacity: 1;
+    border: 2px solid white;
+}
+
+.f_area_tail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s;
+    text-align: center;
+}
+
+.product_div {
+    width: calc(100% - 20px); /* 전체 너비에서 좌우 여백 고려 */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* 요소들을 좌우에 균등하게 배치 */
+    padding: 10px; /* 좌우 여백 추가 */
+    box-sizing: border-box;
+}
+
+.product_head {
+    position: relative;
+    width: calc(24% - 10px); /* 요소의 너비를 계산 */
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: #4f4f4f;
+    text-align: center;
+    align-items: center;
+    vertical-align: middle;
+    margin-bottom: 10px; /* 아래 여백 추가 */
+    border: 2px none white;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.product_img {
+    width: 100%;
+    height: auto; /* 이미지 비율 유지 */
+}
+
+.product_head p {
+    margin-left: 5px;
+}
+
+.product_tail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s;
+    text-align: center;
+}
+
+.product_name {
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.description {
+    color: white;
+    text-decoration: none;
+    font-size: 10px;
+}
+
+.shop_tag {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.product_head:hover .product_tail {
+    opacity: 1;
+    border: 2px solid white;
+}
+
+.back_main_site {
+    color: white;
+    text-decoration: none;
+}

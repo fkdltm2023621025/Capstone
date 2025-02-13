@@ -1,0 +1,17 @@
+        .top_menu 
+        {
+            width: 100%;
+            display: flex;
+            position: sticky;
+            justify-content: space-evenly;
+            color: white;
+            background-color: #343434;
+            padding: 30px 30px;
+            z-index: 2;
+        }
+        .menu_category 
+        {
+            display: block;
+            text-decoration: none;
+            color: white;
+        }
