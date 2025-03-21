@@ -26,7 +26,7 @@ mail.init_app(app)
 db = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="4528",
+    password="",
     database="productdb"
 )
 
