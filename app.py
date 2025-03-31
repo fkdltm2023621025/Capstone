@@ -18,8 +18,8 @@ mail = Mail(app)
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'  # SMTP 서버 주소
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = 'yuncapstone@gmail.com'  # 발신 이메일
-app.config['MAIL_PASSWORD'] = 'smqwqttzqhnfmjhv'  # 이메일 비밀번호
+app.config['MAIL_USERNAME'] = ''  # 발신 이메일
+app.config['MAIL_PASSWORD'] = ''  # 이메일 비밀번호
 mail.init_app(app)
 
 # 데이터베이스 연결 설정
